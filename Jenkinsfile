@@ -1,15 +1,28 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:16'
-        }
-    }
+    agent any 
     
-    stages {
-        stage('Build') {
+    stages{
+        stage("Clone Code"){
             steps {
-                sh 'npm install --save'
+                echo "Cloning the code"
+            }
+        }
+        stage("Build"){
+            steps {
+                echo "Building the image"
+            }
+        }
+        stage("Push to Docker Hub"){
+            steps {
+                echo "Pushing the image to docker hub"
+                }
+            }
+        }
+        stage("Deploy"){
+            steps {
+                echo "Deploying the container"            
             }
         }
     }
 }
+
