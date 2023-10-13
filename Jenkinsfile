@@ -17,18 +17,18 @@ pipeline {
         stage("Push to Docker Hub"){
             steps {
                 echo "Pushing the image to docker hub"
-                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
                 sh "docker tag my-node-app ${env.dockerHubUser}/my-node-app:latest"
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
                 sh "docker push ${env.dockerHubUser}/my-node-app:latest"
-                }
             }
+        }
+
         stage("Deploy"){
             steps {
                 echo "Deploying the container"            
-            }
         }
     }
 }
-
+}
 
