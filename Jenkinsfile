@@ -17,12 +17,12 @@ pipeline {
                 echo "Pushing the image to docker hub"
                 }
             }
-        }
         stage("Deploy"){
             steps {
                 echo "Deploying the container"            
             }
         }
     }
+}
 
 
