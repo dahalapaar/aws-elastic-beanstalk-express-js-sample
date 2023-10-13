@@ -5,6 +5,7 @@ pipeline {
         stage("Clone Code"){
             steps {
                 echo "Cloning the code"
+                git url:"https://github.com/dahalapaar/aws-elastic-beanstalk-express-js-sample.git", branch: "main"
             }
         }
         stage("Build"){
