@@ -14,12 +14,6 @@ pipeline {
                 sh "docker build -t my-node-app ."
             }
         }
-        stage("Deploy"){
-            steps {
-                echo "Deploying the container" 
-                sh "docker-compose down && docker-compose up -d"
-        }
-    }
-}
+   }
 }
 
